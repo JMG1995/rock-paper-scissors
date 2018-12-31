@@ -9,19 +9,28 @@ function computerPlay() {
   }
 }
 
-function playRound(x, computerSelection) {
-  computerSelection = computerPlay().toLowerCase();
-  x = prompt("Please choose Rock, Paper or Scissors:");
+function capitalize(string) {
+  let getCapitalLetter = string.charAt(0).toUpperCase();
+  let getLowerString = string.slice(1).toLowerCase();
 
-  if (x == computerSelection) {
-    return `You both rolled ${x}! Try again`;
+  return getCapitalLetter + getLowerString;
+}
+
+function playRound(userSelection, computerSelection) {
+  computerSelection = computerPlay().toLowerCase();
+  userSelection = prompt("Please choose Rock, Paper or Scissors:");
+  userSelection = capitalize(userSelection);
+  computerSelection = capitalize(computerSelection);
+
+  if (userSelection == computerSelection) {
+    return `You both rolled ${userSelection}! Try again`;
   } else if (
-    (x == "rock" && computerSelection == "scissors") ||
-    (x == "paper" && computerSelection == "rock") ||
-    (x == "scissors" && computerSelection == "paper")
+    (userSelection == "Rock" && computerSelection == "Scissors") ||
+    (userSelection == "Paper" && computerSelection == "Rock") ||
+    (userSelection == "Scissors" && computerSelection == "Paper")
   ) {
-    return `You win! ${x} beats ${computerSelection}`;
+    return `You win! ${userSelection} beats ${computerSelection}`;
   } else {
-    return `You lose! ${computerSelection} beats ${x}`;
+    return `You lose! ${computerSelection} beats ${userSelection}`;
   }
 }
