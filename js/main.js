@@ -1,6 +1,3 @@
-const playerSelection = "paper";
-const computerSelection = computerPlay().toLowerCase();
-
 function computerPlay() {
   let getThrow = Math.floor(Math.random() * 3);
   if (getThrow == 0) {
@@ -12,18 +9,19 @@ function computerPlay() {
   }
 }
 
-function playRound(x, y) {
-  if (x == y) {
+function playRound(x, computerSelection) {
+  computerSelection = computerPlay().toLowerCase();
+  x = prompt("Please choose Rock, Paper or Scissors:");
+
+  if (x == computerSelection) {
     return `You both rolled ${x}! Try again`;
   } else if (
-    (x == "rock" && y == "scissors") ||
-    (x == "paper" && y == "rock") ||
-    (x == "scissors" && y == "paper")
+    (x == "rock" && computerSelection == "scissors") ||
+    (x == "paper" && computerSelection == "rock") ||
+    (x == "scissors" && computerSelection == "paper")
   ) {
-    return `You win! ${x} beats ${y}`;
+    return `You win! ${x} beats ${computerSelection}`;
   } else {
-    return `You lose! ${y} beats ${x}`;
+    return `You lose! ${computerSelection} beats ${x}`;
   }
 }
-
-console.log(playRound(playerSelection, computerSelection));
