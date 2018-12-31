@@ -1,6 +1,5 @@
 let computerWins = 0;
 let playerWins = 0;
-let gamesPlayed = 1;
 
 // generate computers throw
 function computerPlay() {
@@ -30,33 +29,37 @@ function playRound(userSelection, computerSelection) {
   computerSelection = capitalize(computerSelection);
 
   if (userSelection == computerSelection) {
-    gamesPlayed++;
     console.log(`You both rolled ${userSelection}! Try again`);
   } else if (
     (userSelection == "Rock" && computerSelection == "Scissors") ||
     (userSelection == "Paper" && computerSelection == "Rock") ||
     (userSelection == "Scissors" && computerSelection == "Paper")
   ) {
-    gamesPlayed++;
     playerWins++;
     console.log(`You win! ${userSelection} beats ${computerSelection}`);
-  } else {
-    gamesPlayed++;
+  } else if (
+    (userSelection == "Scissors" && computerSelection == "Rock") ||
+    (userSelection == "Rock" && computerSelection == "Paper") ||
+    (userSelection == "Paper" && computerSelection == "Scissors")
+  ) {
     computerWins++;
     console.log(`You lose! ${computerSelection} beats ${userSelection}`);
+  } else {
+    alert("You must choose Rock, Paper or Scissors.");
+    playRound();
   }
 }
 
 // plays 5 rounds and keeps track of score
 function game() {
-  for (let i = 0; i < 5; i++) {
-    console.log(`Game ${gamesPlayed} of 5`);
+  for (let i = 1; i <= 5; i++) {
+    console.info(`Game ${i} of 5:`);
     playRound();
   }
   if (playerWins > computerWins) {
     console.log(`You won ${playerWins} to ${computerWins}. Good job!`);
   } else if (computerWins > playerWins) {
-    console.log(
+    console.error(
       `You lost ${computerWins} to ${playerWins}. Better luck next time!`
     );
   } else {
