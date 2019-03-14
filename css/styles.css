@@ -1,0 +1,39 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid blue;
+}
+
+h1 {
+  margin: 20px 0 50px;
+  text-align: center;
+  font-size: 3em;
+}
+
+section {
+  display: flex;
+  flex: 1 1 50%;
+  min-height: 80vh;
+  border: 3px solid green;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+h4 {
+  border: 1px solid red;
+  flex: 1 1 100%;
+  text-align: center;
+  font-size: 1.5em;
+  align-self: flex-start;
+  justify-self: center;
+}
+
+button {
+  align-self: flex-start;
+  padding: 10px 15px;
+  margin: 10px;
+  background: lightcoral;
+  border-radius: 5px;
+  font-size: 1.2em;
+  text-transform: capitalize;
+}
