@@ -21,13 +21,21 @@ function capitalize(string) {
   return getCapitalLetter + getLowerString;
 }
 
+// determine which button is clicked
+function getSelection() {
+  const button = document.querySelectorAll("button");
+  button.forEach(button => {
+    button.addEventListener("click", () => {
+      userSelection = capitalize(button.id);
+      playRound(userSelection);
+    });
+  });
+}
+
 // determine who wins a single round
 function playRound(userSelection, computerSelection) {
   computerSelection = computerPlay().toLowerCase();
-  userSelection = prompt("Please choose Rock, Paper or Scissors:");
-  userSelection = capitalize(userSelection);
   computerSelection = capitalize(computerSelection);
-
   if (userSelection == computerSelection) {
     console.log(`You both rolled ${userSelection}! Try again`);
   } else if (
@@ -45,24 +53,8 @@ function playRound(userSelection, computerSelection) {
     computerWins++;
     console.log(`You lose! ${computerSelection} beats ${userSelection}`);
   } else {
-    alert("You must choose Rock, Paper or Scissors.");
-    playRound();
+    console.log("this is the final else statement");
   }
 }
 
-// plays 5 rounds and keeps track of score
-function game() {
-  for (let i = 1; i <= 5; i++) {
-    console.info(`Game ${i} of 5:`);
-    playRound();
-  }
-  if (playerWins > computerWins) {
-    console.log(`You won ${playerWins} to ${computerWins}. Good job!`);
-  } else if (computerWins > playerWins) {
-    console.error(
-      `You lost ${computerWins} to ${playerWins}. Better luck next time!`
-    );
-  } else {
-    console.log("You drew with the computer. Try again!");
-  }
-}
+getSelection();
