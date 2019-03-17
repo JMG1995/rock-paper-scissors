@@ -1,7 +1,10 @@
+body {
+  overflow: hidden;
+}
+
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border: 1px solid blue;
 }
 
 h1 {
@@ -13,19 +16,19 @@ h1 {
 section {
   display: flex;
   flex: 1 1 50%;
-  min-height: 80vh;
-  border: 3px solid green;
+  height: 80vh;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-h4 {
-  border: 1px solid red;
+h4,
+.score {
   flex: 1 1 100%;
   text-align: center;
   font-size: 1.5em;
   align-self: flex-start;
   justify-self: center;
+  margin-bottom: 20px;
 }
 
 button {
@@ -36,4 +39,25 @@ button {
   border-radius: 5px;
   font-size: 1.2em;
   text-transform: capitalize;
+}
+
+/*  overlay to reset game */
+.result {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: all 0.5s ease-in-out; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+.win {
+  background-color: lightgreen;
+}
+
+.lose {
+  background-color: rgb(245, 95, 90);
 }

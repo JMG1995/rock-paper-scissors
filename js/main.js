@@ -1,5 +1,7 @@
 let computerWins = 0;
 let playerWins = 0;
+let score = document.querySelector(".score");
+score.innerHTML = `Please choose Rock, Paper or Scissors to begin. <br> You: ${playerWins} Computer: ${computerWins}`;
 
 // generate computers throw
 function computerPlay() {
@@ -36,24 +38,31 @@ function getSelection() {
 function playRound(userSelection, computerSelection) {
   computerSelection = computerPlay().toLowerCase();
   computerSelection = capitalize(computerSelection);
-  if (userSelection == computerSelection) {
-    console.log(`You both rolled ${userSelection}! Try again`);
+
+  if (playerWins === 5) {
+    const overlay = document.querySelector(".result");
+    overlay.style.width = "100%";
+    overlay.classList.add("win");
+  } else if (computerWins === 5) {
+    const overlay = document.querySelector(".result");
+    overlay.style.width = "100%";
+    overlay.classList.add("lose");
+  } else if (userSelection == computerSelection) {
+    score.innerHTML = `You both rolled ${userSelection}, try again. <br> You: ${playerWins} Computer: ${computerWins}`;
   } else if (
     (userSelection == "Rock" && computerSelection == "Scissors") ||
     (userSelection == "Paper" && computerSelection == "Rock") ||
     (userSelection == "Scissors" && computerSelection == "Paper")
   ) {
     playerWins++;
-    console.log(`You win! ${userSelection} beats ${computerSelection}`);
+    score.innerHTML = `You win! ${userSelection} beats ${computerSelection} <br> You: ${playerWins} Computer: ${computerWins}`;
   } else if (
     (userSelection == "Scissors" && computerSelection == "Rock") ||
     (userSelection == "Rock" && computerSelection == "Paper") ||
     (userSelection == "Paper" && computerSelection == "Scissors")
   ) {
     computerWins++;
-    console.log(`You lose! ${computerSelection} beats ${userSelection}`);
-  } else {
-    console.log("this is the final else statement");
+    score.innerHTML = `You lose! ${computerSelection} beats ${userSelection} <br> You: ${playerWins} Computer: ${computerWins}`;
   }
 }
 
