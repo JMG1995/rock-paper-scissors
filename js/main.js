@@ -39,6 +39,7 @@ function playRound(userSelection, computerSelection) {
   computerSelection = computerPlay().toLowerCase();
   computerSelection = capitalize(computerSelection);
 
+  // separate into new function????
   if (playerWins === 5) {
     const overlay = document.querySelector(".result");
     overlay.style.width = "100%";

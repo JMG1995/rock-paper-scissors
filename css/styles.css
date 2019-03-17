@@ -61,3 +61,10 @@ button {
 .lose {
   background-color: rgb(245, 95, 90);
 }
+
+.result button {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 1);
+  border-radius: 5px;
+  text-align: center;
+}
