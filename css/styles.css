@@ -1,3 +1,4 @@
+/* General styling */
 body {
   overflow: hidden;
 }
@@ -15,10 +16,19 @@ h1 {
 
 section {
   display: flex;
-  flex: 1 1 50%;
-  height: 80vh;
+  flex: 1 1 100%;
   justify-content: center;
   flex-wrap: wrap;
+  height: 70vh;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  margin: 0 20px;
+}
+
+h4 {
+  padding: 10px;
+  background: #fff;
 }
 
 h4,
@@ -38,6 +48,7 @@ button {
   background: lightcoral;
   border-radius: 5px;
   font-size: 1.2em;
+  flex-direction: column;
   text-transform: capitalize;
 }
 
