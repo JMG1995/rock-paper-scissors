@@ -65,6 +65,21 @@ button {
   transition: all 0.5s ease-in-out; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
 
+.result > div {
+  position: relative;
+  top: 30%;
+  background-color: inherit;
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.result > div > h4 {
+  background-color: inherit;
+  font-size: 4em;
+  color: #fff;
+}
+
 .win {
   background-color: lightgreen;
 }
@@ -75,7 +90,6 @@ button {
 
 .result button {
   background-color: #fff;
-  color: rgba(0, 0, 0, 1);
   border-radius: 5px;
   text-align: center;
 }

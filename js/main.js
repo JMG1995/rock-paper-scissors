@@ -62,13 +62,15 @@ function playRound(userSelection, computerSelection) {
 getSelection();
 
 function checkGameOver() {
+  const overlay = document.querySelector(".result");
+  const result = document.querySelector(".result h4");
   if (playerWins === 5) {
-    const overlay = document.querySelector(".result");
     overlay.style.width = "100%";
     overlay.classList.add("win");
+    result.textContent = "Congratulations - you win!";
   } else if (computerWins === 5) {
-    const overlay = document.querySelector(".result");
     overlay.style.width = "100%";
     overlay.classList.add("lose");
+    result.textContent = "Sorry - better luck next time!";
   }
 }
