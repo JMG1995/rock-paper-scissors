@@ -39,16 +39,7 @@ function playRound(userSelection, computerSelection) {
   computerSelection = computerPlay().toLowerCase();
   computerSelection = capitalize(computerSelection);
 
-  // separate into new function????
-  if (playerWins === 5) {
-    const overlay = document.querySelector(".result");
-    overlay.style.width = "100%";
-    overlay.classList.add("win");
-  } else if (computerWins === 5) {
-    const overlay = document.querySelector(".result");
-    overlay.style.width = "100%";
-    overlay.classList.add("lose");
-  } else if (userSelection == computerSelection) {
+  if (userSelection == computerSelection) {
     score.innerHTML = `You both rolled ${userSelection}, try again. <br> You: ${playerWins} Computer: ${computerWins}`;
   } else if (
     (userSelection == "Rock" && computerSelection == "Scissors") ||
@@ -65,6 +56,19 @@ function playRound(userSelection, computerSelection) {
     computerWins++;
     score.innerHTML = `You lose! ${computerSelection} beats ${userSelection} <br> You: ${playerWins} Computer: ${computerWins}`;
   }
+  checkGameOver();
 }
 
 getSelection();
+
+function checkGameOver() {
+  if (playerWins === 5) {
+    const overlay = document.querySelector(".result");
+    overlay.style.width = "100%";
+    overlay.classList.add("win");
+  } else if (computerWins === 5) {
+    const overlay = document.querySelector(".result");
+    overlay.style.width = "100%";
+    overlay.classList.add("lose");
+  }
+}
