@@ -3,6 +3,9 @@ let playerWins = 0;
 let score = document.querySelector(".score");
 score.innerHTML = `Please choose Rock, Paper or Scissors to begin. <br> You: ${playerWins} Computer: ${computerWins}`;
 
+// run game functionality
+getSelection();
+
 // generate computers throw
 function computerPlay() {
   let getThrow = Math.floor(Math.random() * 3);
@@ -58,8 +61,6 @@ function playRound(userSelection, computerSelection) {
   }
   checkGameOver();
 }
-
-getSelection();
 
 function checkGameOver() {
   const overlay = document.querySelector(".result");
