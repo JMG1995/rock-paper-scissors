@@ -69,9 +69,19 @@ function checkGameOver() {
     overlay.style.width = "100%";
     overlay.classList.add("win");
     result.textContent = "Congratulations - you win!";
+    resetGame();
   } else if (computerWins === 5) {
     overlay.style.width = "100%";
     overlay.classList.add("lose");
     result.textContent = "Sorry - better luck next time!";
+    resetGame();
   }
+}
+
+function resetGame() {
+  const reset = document.querySelector(".result button");
+  reset.addEventListener("click", () => {
+    const overlay = document.querySelector(".result");
+    overlay.style.width = "0";
+  });
 }
