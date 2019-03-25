@@ -1,10 +1,20 @@
-let computerWins = 0;
-let playerWins = 0;
+var computerWins = 0;
+var playerWins = 0;
 let score = document.querySelector(".score");
 score.innerHTML = `Please choose Rock, Paper or Scissors to begin. <br> You: ${playerWins} Computer: ${computerWins}`;
 
 // run game functionality
 getSelection();
+
+function getSelection() {
+  const button = document.querySelectorAll(".throw");
+  button.forEach(button => {
+    button.addEventListener("click", () => {
+      userSelection = capitalize(button.id);
+      playRound(userSelection);
+    });
+  });
+}
 
 // generate computers throw
 function computerPlay() {
@@ -24,17 +34,6 @@ function capitalize(string) {
   let getLowerString = string.slice(1).toLowerCase();
 
   return getCapitalLetter + getLowerString;
-}
-
-// determine which button is clicked
-function getSelection() {
-  const button = document.querySelectorAll("button");
-  button.forEach(button => {
-    button.addEventListener("click", () => {
-      userSelection = capitalize(button.id);
-      playRound(userSelection);
-    });
-  });
 }
 
 // determine who wins a single round
@@ -82,6 +81,9 @@ function resetGame() {
   const reset = document.querySelector(".result button");
   reset.addEventListener("click", () => {
     const overlay = document.querySelector(".result");
+    playerWins = 0;
+    computerWins = 0;
+    score.innerHTML = `Please choose Rock, Paper or Scissors to begin. <br> You: ${playerWins} Computer: ${computerWins}`;
     overlay.style.width = "0";
   });
 }
