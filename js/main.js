@@ -10,6 +10,9 @@ function getSelection() {
   const button = document.querySelectorAll(".throw");
   button.forEach(button => {
     button.addEventListener("click", () => {
+      const overlay = document.querySelector(".result");
+      overlay.classList.remove("lose");
+      overlay.classList.remove("win");
       userSelection = capitalize(button.id);
       playRound(userSelection);
     });
@@ -64,12 +67,12 @@ function playRound(userSelection, computerSelection) {
 function checkGameOver() {
   const overlay = document.querySelector(".result");
   const result = document.querySelector(".result h4");
-  if (playerWins === 5) {
+  if (playerWins >= 5) {
     overlay.style.width = "100%";
     overlay.classList.add("win");
     result.textContent = "Congratulations - you win!";
     resetGame();
-  } else if (computerWins === 5) {
+  } else if (computerWins >= 5) {
     overlay.style.width = "100%";
     overlay.classList.add("lose");
     result.textContent = "Sorry - better luck next time!";

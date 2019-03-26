@@ -1,7 +1,8 @@
 /* General styling */
 html {
-  background-color: rgb(75, 210, 255);
-  color: #fff;
+  background-color: #fff;
+  color: #000;
+  font-family: monospace;
 }
 body {
   overflow: hidden;
@@ -9,7 +10,7 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
 }
 
 h1 {
@@ -46,6 +47,7 @@ section button,
   font-size: 1.2em;
   flex-direction: column;
   text-transform: capitalize;
+  font-family: monospace;
 }
 
 /*  overlay to reset game */
