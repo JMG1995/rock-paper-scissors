@@ -1,93 +1,104 @@
 /* General styling */
 html {
-  background-color: #fff;
-  color: #000;
-  font-family: monospace;
+	background-color: #fff;
+	color: #000;
+	font-family: monospace;
 }
 body {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 .container {
-  display: grid;
-  grid-template-columns: 1fr;
+	display: grid;
+	grid-template-columns: 1fr;
 }
 
 h1 {
-  margin: 20px 0 50px;
-  text-align: center;
-  font-size: 3em;
+	margin: 20px 0 50px;
+	text-align: center;
+	font-size: 3em;
 }
 
 section {
-  height: 100vh;
-  margin: 20px auto;
+	height: 100vh;
+	margin: 20px auto;
+}
+
+section button {
+	display: block;
+	margin: 20px auto;
 }
 
 h4 {
-  padding: 10px;
+	padding: 10px;
 }
 
 h4,
 .score {
-  flex: 1 1 100%;
-  text-align: center;
-  font-size: 1.5em;
-  align-self: flex-start;
-  justify-self: center;
-  text-align: center;
+	flex: 1 1 100%;
+	text-align: center;
+	font-size: 1.5em;
+	align-self: flex-start;
+	justify-self: center;
+	text-align: center;
 }
 
 section button,
 .result button {
-  padding: 15px;
-  margin: 20px;
-  background: lightcoral;
-  border-radius: 5px;
-  font-size: 1.2em;
-  flex-direction: column;
-  text-transform: capitalize;
-  font-family: monospace;
+	padding: 15px;
+	background: lightcoral;
+	border-radius: 5px;
+	font-size: 1.2em;
+	flex-direction: column;
+	text-transform: capitalize;
+	font-family: monospace;
 }
 
 /*  overlay to reset game */
 .result {
-  /* Height & width depends on how you want to reveal the overlay (see JS below) */
-  height: 100%;
-  width: 0;
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  overflow-x: hidden; /* Disable horizontal scroll */
-  transition: all 0.5s ease-in-out; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+	/* Height & width depends on how you want to reveal the overlay (see JS below) */
+	height: 100%;
+	width: 0;
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	overflow-x: hidden; /* Disable horizontal scroll */
+	transition: all 0.5s ease-in-out; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
 
 .result > div {
-  position: relative;
-  top: 30%;
-  background-color: inherit;
-  text-align: center;
-  width: 50%;
-  margin: 0 auto;
+	position: relative;
+	top: 30%;
+	background-color: inherit;
+	text-align: center;
+	width: 50%;
+	margin: 0 auto;
 }
 
 .result > div > h4 {
-  background-color: inherit;
-  font-size: 4em;
-  color: #fff;
+	background-color: inherit;
+	font-size: 4em;
+	color: #fff;
 }
 
 .win {
-  background-color: lightgreen;
+	background-color: lightgreen;
 }
 
 .lose {
-  background-color: rgb(245, 95, 90);
+	background-color: rgb(245, 95, 90);
 }
 
 .result button {
-  background-color: #fff;
-  border-radius: 5px;
-  text-align: center;
+	background-color: #fff;
+	border-radius: 5px;
+	text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+	section button {
+		margin: 20px;
+		display: inline;
+	}
 }

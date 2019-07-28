@@ -1,3 +1,7 @@
-## Rock, Paper, Scissors game (currently only works in the console).
+## Basic Rock, Paper, Scissors game
 
-### To play, open the console and run the function "game();"
+### [Click here to play] (https://jmg1995.github.io/rock-paper-scissors/)
+
+### Rules
+First to 5 wins  
+Rock > Scissors, Paper > Rock, Scissors > Paper
